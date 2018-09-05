@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id="circle" class="com.cubic.spring.Circle">
+<property name="length" value="20"/>
+</bean>
+<bean id="traingle" class="com.cubic.spring.Traingle" autowire="byType" parent="circle"> 
+<!-- <property name="type" value="Testing"></property> -->
+<constructor-arg value="Equilateral"></constructor-arg>
+<property name="pointA" ref="point"></property>
+<property name="pointB" ref="pointa"></property>
+<property name="pointC" ref="pointb"></property>
+<property name="points">
+<list>
+<ref bean="point" />
+<ref bean="pointa" />
+<ref bean="pointb" />
+</list>
+</property>
+<property name="strnames">
+<list>
+<value>India</value>
+<value>India</value>
+<value>India</value>
+<value>India</value>
+</list>
+</property>
+<property name="mapValues">
+<map>
+<entry key="Country" value="India"></entry>
+<entry key="Capital" value="Delhi"></entry>
+<entry key="state" value="Kerala"></entry>
+</map>
+</property>
+
+</bean>
+
+<bean id="point" class="com.cubic.spring.Point">
+<property name="x" value="0"></property>
+<property name="y" value="0"></property>
+</bean>
+
+<bean id="pointa" class="com.cubic.spring.Point">
+<property name="x" value="2"></property>
+<property name="y" value="3"></property>
+</bean>
+
+<bean id="pointb" class="com.cubic.spring.Point">
+<property name="x" value="20"></property>
+<property name="y" value="30"></property>
+</bean>
+<bean id="c" class="com.cubic.spring.Car">
+<property name="carName" value="Audi"></property>
+<property name="carModel" value="2010"></property>
+</bean>
+</beans>
